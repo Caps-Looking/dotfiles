@@ -1,0 +1,39 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+        color_good = "#2AA198"
+        color_bad = "#586E75"
+        color_degraded = "#DC322F"
+        markup="pango"
+}
+
+order += "cpu_usage"
+order += "disk /"
+order += "memory"
+order += "tztime local"
+
+cpu_usage {
+        format = "<span color='#eb4034'>   %usage </span>"
+}
+
+disk "/" {
+        format = "<span color='#ebc034'>   %avail </span>"
+}
+
+memory {
+        format = "<span color='#34a8eb'>    %used / %total </span>"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "   %d-%m-%Y / %H:%M "
+}
